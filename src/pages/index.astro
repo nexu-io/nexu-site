@@ -1,0 +1,234 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Nexu - The first Agent-Native Workspace" />
+    <meta property="og:title" content="Nexu" />
+    <meta property="og:description" content="Nexu - The first Agent-Native Workspace" />
+    <title>Nexu - The first Agent-Native Workspace</title>
+    <link rel="icon" href="/assets/0901.svg" type="image/svg+xml" />
+    <style>html,body{background:#f3f3f3}</style>
+  </head>
+  <body>
+    <main class="site-shell" aria-label="Fleet homepage">
+      <section class="hero" id="top">
+        <div class="sunlit-bg" aria-hidden="true">
+          <div class="sunlit-glow"></div>
+          <div class="sunlit-glow-bounce"></div>
+          <div class="sunlit-perspective">
+            <div class="sunlit-leaves">
+              <svg class="sunlit-filter" aria-hidden="true">
+                <defs>
+                  <filter id="wind" x="-20%" y="-20%" width="140%" height="140%">
+                    <feTurbulence type="fractalNoise" numOctaves="2" seed="1">
+                      <animate
+                        attributeName="baseFrequency"
+                        dur="16s"
+                        keyTimes="0;0.33;0.66;1"
+                        values="0.005 0.003;0.01 0.009;0.008 0.004;0.005 0.003"
+                        repeatCount="indefinite"
+                      />
+                    </feTurbulence>
+                    <feDisplacementMap in="SourceGraphic">
+                      <animate
+                        attributeName="scale"
+                        dur="20s"
+                        keyTimes="0;0.25;0.5;0.75;1"
+                        values="45;55;75;55;45"
+                        repeatCount="indefinite"
+                      />
+                    </feDisplacementMap>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+            <div class="sunlit-blinds">
+              <div class="sunlit-shutters">
+                {Array.from({ length: 23 }).map(() => <div class="sunlit-shutter" />)}
+              </div>
+              <div class="sunlit-vertical">
+                <div class="sunlit-bar"></div>
+                <div class="sunlit-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="sunlit-progressive-blur">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="topbar">
+          <svg id="logo-svg" width="58" height="58" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="logo-clip">
+                <path d="M20.5645 0C31.9219 0 41.1289 9.20702 41.1289 20.5645V36.7227C41.1288 39.1562 39.1562 41.1287 36.7227 41.1289H21.9355V21.9355H19.1934V41.1289H4.40625C1.97279 41.1287 0.000138274 39.1561 0 36.7227V20.5645C3.84333e-05 9.20704 9.20704 3.19551e-05 20.5645 0Z"/>
+                <path d="M64.4355 85C53.0781 85 43.8711 75.793 43.8711 64.4355L43.8711 48.2773C43.8712 45.8438 45.8438 43.8713 48.2773 43.8711L63.0645 43.8711L63.0645 63.0645H65.8066L65.8066 43.8711L80.5938 43.8711C83.0272 43.8713 84.9999 45.8439 85 48.2773V64.4356C85 75.793 75.793 85 64.4355 85Z"/>
+                <path d="M43.8711 20.5659C43.8711 9.20847 53.0781 0.0014973 64.4355 0.00146484C75.3319 0.00146437 84.2471 8.47613 84.9531 19.1938H65.8066V21.9351H84.9531C84.2484 32.6541 75.3329 41.1304 64.4355 41.1304C53.0781 41.1303 43.8711 31.9233 43.8711 20.5659Z"/>
+                <path d="M0 64.4365C-2.26663e-07 59.2511 1.91919 54.5139 5.08594 50.8965L15.7773 61.5869L17.7168 59.6484L7.02539 48.958C10.6429 45.791 15.3797 43.8711 20.5654 43.8711C25.5341 43.8711 30.0909 45.6337 33.6455 48.5674L22.5625 59.6504L24.501 61.5889L35.6396 50.4512C39.0451 54.1206 41.1288 59.0337 41.1289 64.4346C41.1289 69.6203 39.2093 74.3581 36.042 77.9756L24.2031 66.1357L22.2637 68.0742L34.1025 79.9141C30.4854 83.0804 25.7492 84.9999 20.5645 85C15.1634 85 10.2486 82.9172 6.5791 79.5117L18.0146 68.0771L16.0762 66.1377L4.69629 77.5176C1.76236 73.9629 2.19665e-06 69.4055 0 64.4365Z"/>
+              </clipPath>
+              <filter id="blob-blur" x="-50%" y="-100%" width="200%" height="300%">
+                <feGaussianBlur stdDeviation="16"/>
+              </filter>
+            </defs>
+            <g clip-path="url(#logo-clip)">
+              <rect x="0" y="0" width="85" height="85" fill="#2d2d2d"/>
+              <g id="logo-ellipses" transform="translate(0, 130)">
+                <ellipse cx="42.5" cy="0"   rx="55" ry="26" fill="#c8a030" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="30"  rx="55" ry="26" fill="#eebe38" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="60"  rx="55" ry="26" fill="#f4a837" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="90"  rx="55" ry="26" fill="#f68b3b" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="120" rx="55" ry="26" fill="#f4997a" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="150" rx="55" ry="26" fill="#e898c8" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="180" rx="55" ry="26" fill="#c4aede" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="210" rx="55" ry="26" fill="#5ba1a2" filter="url(#blob-blur)"/>
+                <ellipse cx="42.5" cy="240" rx="55" ry="26" fill="#009060" filter="url(#blob-blur)"/>
+                <animateTransform id="logo-anim" attributeName="transform" type="translate"
+                  calcMode="spline"
+                  keyTimes="0; 0.35; 1"
+                  values="0,130; 0,-320; 0,-320"
+                  keySplines="0.42 0 0.58 1; 0 0 1 1"
+                  dur="2.8s" begin="indefinite" repeatCount="1" fill="remove"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="hero-inner">
+          <h1>Slack for the Agent Era.</h1>
+          <p class="hero-subtitle">
+            One team chat where humans and AI agents work side by side — open-source, self-hostable, built for the next decade of work.
+          </p>
+
+          <div class="hero-cta">
+            <a href="https://x.com/nexudotio" target="_blank" rel="noopener" class="hero-btn hero-btn--primary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              Follow on X
+            </a>
+            <a href="https://github.com/nexu-io/nexu" target="_blank" rel="noopener" class="hero-btn hero-btn--ghost">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.579.688.481C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+              Star on GitHub
+            </a>
+          </div>
+
+          <div class="world-stage" aria-hidden="true">
+            <div class="orbit" id="worlds"></div>
+          </div>
+
+          <article class="intro-card">
+            <p>
+              <a class="name-fill" href="https://poc-pi-rust.vercel.app/" target="_blank" rel="noreferrer">
+                <strong>Nexu</strong>
+              </a>
+              is a <strong>native agent workspace</strong> built for AI collaboration.
+              Like “Slack for the AI era,” it brings humans and AI agents, such as
+              Claude Code and Cursor, into the same chat interface. Through
+              <strong>visualized workflows</strong>, it breaks open the “black box” of AI
+              execution, and with <strong>multi-layer team memory</strong>, it ensures that
+              every task, decision, and piece of context flows seamlessly across
+              human-AI collaboration, helping teams efficiently manage AI productivity
+              at scale.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="footer-reveal-space" aria-hidden="true"></div>
+
+    <footer class="fleet-footer" id="footer">
+      <div class="footer-overlay" aria-hidden="true"></div>
+      <div class="footer-wrap">
+        <section class="footer-top">
+          <div class="large-mark">
+            <img id="footer-logo-desktop" src="/assets/logo.png" alt="Fleet" />
+          </div>
+
+          <div class="footer-copy">
+            <div class="mobile-definition">
+              <img id="footer-logo-mobile" src="/assets/logo.png" alt="Fleet" />
+            </div>
+            <section class="footer-signup-card" aria-label="Early access">
+              <label class="signup-label" for="footer-email">Work Email</label>
+              <div class="signup-input-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6.75A2.75 2.75 0 0 1 6.75 4h10.5A2.75 2.75 0 0 1 20 6.75v10.5A2.75 2.75 0 0 1 17.25 20H6.75A2.75 2.75 0 0 1 4 17.25V6.75Zm2.75-1.25c-.69 0-1.25.56-1.25 1.25v.43l6.02 4.3a.75.75 0 0 0 .87 0l6.02-4.3v-.43c0-.69-.56-1.25-1.25-1.25H6.75Zm11.75 3.52-5.15 3.68a2.25 2.25 0 0 1-2.61 0L5.5 9.02v8.23c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25V9.02Z" fill="currentColor"></path>
+                </svg>
+                <input id="footer-email" type="email" placeholder="you@company.com" />
+              </div>
+
+              <div class="signup-role-group">
+                <p class="signup-label">Your Role</p>
+                <div class="signup-chips">
+                  <button type="button" class="signup-chip" aria-pressed="false">Founder / CEO</button>
+                  <button type="button" class="signup-chip" aria-pressed="false">Engineering / Tech Lead</button>
+                  <button type="button" class="signup-chip" aria-pressed="false">Product / Operations</button>
+                  <button type="button" class="signup-chip" aria-pressed="false">Indie Developer / Indie Games</button>
+                  <button type="button" class="signup-chip" aria-pressed="false">Other</button>
+                </div>
+              </div>
+
+              <button type="button" class="signup-submit" disabled>Request Early Access</button>
+              <p class="signup-note">
+                We'll only email you updates about Nexu. No spam, never any list sharing, and you can unsubscribe at any time.
+              </p>
+            </section>
+          </div>
+        </section>
+
+        <section class="footer-bottom">
+          <div class="dictionary">
+            <div class="wordmark">
+              <img src="/assets/wordmark.svg" alt="Fleet" />
+            </div>
+            <p class="pronunciation">/next to you/</p>
+            <p>"Slack for the Agent Era." One team chat where humans and AI agents work side by side - open-source, self-hostable, built for the next decade of work.</p>
+          </div>
+
+          <div class="footer-video-center">
+            <video id="footer-video" muted playsinline>
+              <source src="/assets/footer-video.webm" type="video/webm" />
+            </video>
+          </div>
+
+          <div class="footer-right-col">
+            <nav class="footer-nav-links">
+              <a href="https://x.com/nexudotio" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                X
+              </a>
+              <a href="https://discord.com/invite/Q6AxCUuMNU" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.032.054a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Discord
+              </a>
+              <a href="https://docs.nexu.io/zh/guide/contact" target="_blank" rel="noopener">Contact Us</a>
+              <a href="https://nexu.io/privacy" target="_blank" rel="noopener">Privacy</a>
+              <a href="https://nexu.io/terms" target="_blank" rel="noopener">Terms</a>
+            </nav>
+            <div class="status-row">
+              <span>© 2026 Powerformer, Inc.</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+
+    <script>
+      import "../scripts/main.ts";
+    </script>
+  </body>
+</html>
