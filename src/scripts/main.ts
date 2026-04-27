@@ -37,7 +37,8 @@ const orbit = document.querySelector<HTMLElement>("#worlds")!;
 const introCard = document.querySelector<HTMLElement>(".intro-card")!;
 const footerElement = document.querySelector<HTMLElement>("#footer");
 const footerRevealSpace = document.querySelector<HTMLElement>(".footer-reveal-space");
-const logos = ["/assets/logo.png", "/assets/logo2.png", "/assets/logo3.png", "/assets/logo4.png", "/assets/logo5.png"];
+const BASE = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const logos = [`${BASE}assets/logo.png`, `${BASE}assets/logo2.png`, `${BASE}assets/logo3.png`, `${BASE}assets/logo4.png`, `${BASE}assets/logo5.png`];
 let enterCount = 0;
 let wasInView = false;
 
@@ -104,7 +105,7 @@ const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 function updateFavicon(): void {
   if (faviconLink) {
-    faviconLink.href = darkScheme.matches ? "/assets/0901-white.svg" : "/assets/0901.svg";
+    faviconLink.href = darkScheme.matches ? `${BASE}assets/0901-white.svg` : `${BASE}assets/0901.svg`;
   }
 }
 updateFavicon();

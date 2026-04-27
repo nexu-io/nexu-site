@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+const BASE = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 ---
 
 <!doctype html>
@@ -11,7 +12,7 @@ import "../styles/global.css";
     <meta property="og:title" content="Nexu" />
     <meta property="og:description" content="Nexu - The first Agent-Native Workspace" />
     <title>Nexu - The first Agent-Native Workspace</title>
-    <link rel="icon" href="/assets/0901.svg" type="image/svg+xml" />
+    <link rel="icon" href={`${BASE}assets/0901.svg`} type="image/svg+xml" />
     <style>html,body{background:#f3f3f3}</style>
   </head>
   <body>
@@ -151,12 +152,12 @@ import "../styles/global.css";
       <div class="footer-wrap">
         <section class="footer-top">
           <div class="large-mark">
-            <img id="footer-logo-desktop" src="/assets/logo.png" alt="Fleet" />
+            <img id="footer-logo-desktop" src={`${BASE}assets/logo.png`} alt="Fleet" />
           </div>
 
           <div class="footer-copy">
             <div class="mobile-definition">
-              <img id="footer-logo-mobile" src="/assets/logo.png" alt="Fleet" />
+              <img id="footer-logo-mobile" src={`${BASE}assets/logo.png`} alt="Fleet" />
             </div>
             <section class="footer-signup-card" aria-label="Early access">
               <label class="signup-label" for="footer-email">Work Email</label>
@@ -189,7 +190,7 @@ import "../styles/global.css";
         <section class="footer-bottom">
           <div class="dictionary">
             <div class="wordmark">
-              <img src="/assets/wordmark.svg" alt="Fleet" />
+              <img src={`${BASE}assets/wordmark.svg`} alt="Fleet" />
             </div>
             <p class="pronunciation">/next to you/</p>
             <p>"Slack for the Agent Era." One team chat where humans and AI agents work side by side - open-source, self-hostable, built for the next decade of work.</p>
@@ -197,7 +198,7 @@ import "../styles/global.css";
 
           <div class="footer-video-center">
             <video id="footer-video" muted playsinline>
-              <source src="/assets/footer-video.webm" type="video/webm" />
+              <source src={`${BASE}assets/footer-video.webm`} type="video/webm" />
             </video>
           </div>
 
