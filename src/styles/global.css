@@ -875,12 +875,16 @@ sup {
   transform: translateX(-50%);
   pointer-events: none;
   z-index: 1;
+  mix-blend-mode: screen;
+  background: transparent;
 }
 
 .footer-video-center video {
   width: 360px;
   height: auto;
   opacity: 0.6;
+  display: block;
+  background: transparent;
 }
 
 .dictionary {
