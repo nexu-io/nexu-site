@@ -589,14 +589,14 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 48px;
+  gap: 80px;
 }
 
 .footer-top,
 .footer-bottom {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 32px 160px;
 }
 
 .footer-bottom {
@@ -636,7 +636,20 @@ h1 {
 }
 
 .signup-pitch {
-  margin: 0 0 28px;
+  margin: 0 0 48px;
+}
+
+.signup-meta-tag {
+  display: inline-block;
+  margin-bottom: 2px;
+  padding: 5px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 253, 250, 0.2);
+  background: rgba(255, 253, 250, 0.08);
+  color: rgba(255, 253, 250, 0.6);
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.03em;
 }
 
 .signup-pitch p {
@@ -647,13 +660,13 @@ h1 {
 }
 
 .signup-pitch p:first-child {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .signup-pitch p:last-child {
-  font-size: 13px;
+  font-size: 22px;
   color: rgba(255, 253, 250, 0.55);
 }
 
@@ -737,29 +750,59 @@ h1 {
   padding: 16px 24px;
   border: 0;
   border-radius: 8px;
-  background: #767676;
-  color: rgba(255, 255, 255, 0.88);
+  background: #ffffff;
+  color: #0f1116;
   font-family: var(--sans);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
-  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition:
     background-color 180ms ease,
-    color 180ms ease,
     box-shadow 180ms ease,
     opacity 180ms ease;
 }
 
+.signup-submit:hover {
+  background: #f0f0f0;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.signup-submit-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.signup-submit:hover .signup-submit-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .signup-submit:disabled {
   cursor: default;
-  opacity: 0.72;
+  opacity: 0.6;
+}
+
+.signup-submit:disabled:hover {
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.signup-submit:disabled:hover .signup-submit-icon {
+  opacity: 0;
 }
 
 .signup-submit.is-ready {
-  background: #ffffff;
-  color: #0f1116;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  opacity: 1;
 }
 
 .signup-note {

@@ -115,7 +115,7 @@ let rotation = 0;
 let targetRotation = 0;
 let pointer = { x: 0, y: 0 };
 
-const DRAGGABLE = [0, 2, 3, 4];
+const DRAGGABLE = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 const OFFSET_DEFAULTS: Record<number, { x: number; y: number }> = {
   0: { x: -15.55, y: -18.11 },
   2: { x: -5.33, y: -2.87 },
@@ -308,12 +308,9 @@ const signupChips = Array.from(document.querySelectorAll<HTMLButtonElement>(".si
 const signupSubmit = document.querySelector<HTMLButtonElement>(".signup-submit");
 
 function updateSignupState(): void {
-  if (!signupEmail || !signupSubmit) return;
-  const hasEmail = signupEmail.value.trim().length > 0;
-  const hasRole = signupChips.some((chip) => chip.classList.contains("is-active"));
-  const isReady = hasEmail && hasRole;
-  signupSubmit.disabled = !isReady;
-  signupSubmit.classList.toggle("is-ready", isReady);
+  if (!signupSubmit) return;
+  signupSubmit.disabled = false;
+  signupSubmit.classList.add("is-ready");
 }
 
 signupChips.forEach((chip) => {
@@ -331,34 +328,6 @@ signupEmail?.addEventListener("input", updateSignupState);
 updateSignupState();
 
 signupSubmit?.addEventListener("click", () => {
-  const email = signupEmail?.value.trim() ?? "";
-  const toast = document.createElement("div");
-  toast.style.cssText =
-    "position:fixed;top:24px;left:50%;transform:translateX(-50%) translateY(-16px);background:#1a1a1a;color:#fff;padding:12px 12px 12px 20px;border-radius:999px;font-size:14px;opacity:0;transition:opacity 0.3s ease,transform 0.3s ease;z-index:9999;white-space:nowrap;display:flex;align-items:center;gap:12px;";
-
-  const text = document.createElement("span");
-  text.textContent = "We've sent a confirmation to your email";
-  toast.appendChild(text);
-
-  const btn = document.createElement("a");
-  btn.textContent = "View";
-  btn.href = getMailboxUrl(email);
-  btn.target = "_blank";
-  btn.rel = "noopener";
-  btn.style.cssText =
-    "background:#fff;color:#1a1a1a;padding:6px 14px;border-radius:999px;font-size:13px;font-weight:500;text-decoration:none;flex-shrink:0;";
-  toast.appendChild(btn);
-
-  document.body.appendChild(toast);
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    toast.style.opacity = "1";
-    toast.style.transform = "translateX(-50%) translateY(0)";
-  }));
-  setTimeout(() => {
-    toast.style.opacity = "0";
-    toast.style.transform = "translateX(-50%) translateY(-16px)";
-    setTimeout(() => toast.remove(), 350);
-  }, 5000);
 });
 
 function openLightbox(src: string): void {
