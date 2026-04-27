@@ -880,8 +880,16 @@ sup {
     display: none;
   }
 
+  .hero {
+    min-height: auto;
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
   .hero-inner {
-    padding-top: 38px;
+    min-height: auto;
+    justify-content: flex-start;
+    padding: 80px 16px 72px;
   }
 
   h1 {
@@ -903,21 +911,31 @@ sup {
   }
 
   .world-stage {
-    min-height: 440px;
     width: 100%;
+    height: clamp(260px, 72vw, 340px);
+    min-height: 0;
+    margin: 16px 0 8px;
   }
 
   .orbit {
     margin-top: 0;
   }
 
+  .world--image {
+    max-width: 78vw;
+    max-height: 48vw;
+  }
+
   .intro-card {
+    position: relative;
     font-size: 14px;
-    left: 16px;
+    line-height: 1.5;
+    left: auto;
     right: auto;
+    bottom: auto;
     width: min(340px, calc(100vw - 32px));
     max-width: min(340px, calc(100vw - 32px));
-    padding: 16px 16px 28px;
+    padding: 16px;
     transform: none;
     border: 1px solid var(--faint);
     background: rgba(247, 247, 247, 0.84);
