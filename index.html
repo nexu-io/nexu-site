@@ -8,7 +8,7 @@
     <meta property="og:description" content="Fleet - AI-powered workflows" />
     <title>Fleet</title>
     <link rel="icon" href="assets/0901.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="styles.css?v=7" />
   </head>
   <body>
     <div class="sunlit-bg" aria-hidden="true">
@@ -214,12 +214,13 @@
       </div>
     </footer>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
   <script>
     (function () {
       const logos = ['assets/logo.png', 'assets/logo2.png', 'assets/logo3.png', 'assets/logo5.png', 'assets/logo4.png'];
-      let enterCount = 0;
+      let enterCount = 1;
       let wasInView = false;
+      let currentLogoIndex = 0;
 
       function setLogo(src) {
         ['footer-logo-desktop', 'footer-logo-mobile'].forEach(function (id) {
@@ -236,7 +237,11 @@
         var inView = rect.top < window.innerHeight && rect.bottom > 0;
         if (inView && !wasInView) {
           wasInView = true;
-          setLogo(logos[enterCount % logos.length]);
+          var nextIndex = enterCount % logos.length;
+          if (nextIndex !== currentLogoIndex) {
+            currentLogoIndex = nextIndex;
+            setLogo(logos[nextIndex]);
+          }
           enterCount++;
         } else if (!inView) {
           wasInView = false;

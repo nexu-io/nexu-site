@@ -358,15 +358,15 @@ h1 {
   min-height: 430px;
   pointer-events: none;
   perspective: 1000px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .orbit {
   position: absolute;
   inset: 0;
-  margin-top: -6vh;
+  margin-top: 28px;
   transform-style: preserve-3d;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .world {
@@ -699,7 +699,7 @@ sup {
   }
 
   .orbit {
-    margin-top: 0;
+    margin-top: 14px;
   }
 
   .intro-card {
